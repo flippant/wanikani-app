@@ -1,0 +1,65 @@
+<div id="loading" ng-hide="isLoaded">
+    <div class="d-flex justify-content-center">
+        <div>
+            <i class="fa fa-spinner fa-pulse fa-4x"></i>
+        </div>
+    </div>            
+</div>
+<section id="radicals" class="container">
+    <div class="row data-options">
+        <div class="col-12 col-md-2">
+            <span class="dropdown">
+                <button class="dropdown-toggle" type="button" id="levelDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Levels <span class="badge badge-primary">{{levelsDisplay == 0 ? 'unlocked' : levelsDisplay}}</span>
+                </button>
+                <div class="dropdown-menu level-menu" aria-labelledby="levelDropdownButton">
+                    <div class="dropdown-container">
+                        <label ng-repeat="(level,enabled) in levels" onclick="event.stopPropagation();">
+                            <input ng-change="getData()" type="checkbox" ng-model="levels[level]" /> 
+                            <span class="btn" ng-class="{'btn-primary': levels[level],'btn-dark': !levels[level]}">{{level}}</span>
+                        </label>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="col-12 col-md-6">
+            <label ng-repeat="(srs,enabled) in selectSRS" class="srs {{srs}}">
+                    <input ng-change="getData()" type="checkbox" ng-model="selectSRS[srs]" /> 
+                    <span class="d-none d-md-block" ng-class="{'selected': selectSRS[srs]}">{{srs}}</span>
+                    <span class="d-md-none" ng-class="{'selected': selectSRS[srs]}">{{srs.charAt(0)}}</span>
+            </label>
+        </div>   
+        <div class="col-12 col-md-4 action-menu">
+            <a ng-href="#!quiz/{{type}}/{{APIlevels=='' ? 'all' : APIlevels}}/{{selectSRS | objToComma}}">Take quiz on below {{type}} 
+                <span class="badge badge-success">{{listLength}}</span>
+            </a>
+        </div>  
+    </div>
+    <div class="row card-list" ng-show="list">
+        <div class="col-12 level" ng-repeat="(level,levelList) in leveledList">
+            <h6>Level {{level}}</h6>
+            <div class="row">
+                <div class="card-container col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2" ng-repeat="item in levelList">
+                    <div class="card {{item.user_specific.srs}}">
+                        <div class="srs {{item.user_specific.srs}}">{{item.user_specific.srs || '-'}}</div>
+                        <div class="character">{{item.character}}</div>
+                        <div class="image" ng-hide="item.character"><img ng-src="{{item.image}}" /></div>
+                        <div class="hover">
+                            <div class="meaning">
+                                <span>{{item.meaning}}</span>
+                            </div> 
+                            <div class="meaning" ng-show="item.user_specific.user_synonyms">
+                                <span class="label">シノニム</span>
+                                <span><span ng-repeat="synonym in item.user_specific.user_synonyms">{{synonym}}, </span></span>
+                            </div> 
+                            <div class="bottom-border"></div>
+                        </div> 
+                        <div class="next-available" ng-show="item.countdown">{{item.countdown}} </div>                             
+                    </div>       
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                
+</section>

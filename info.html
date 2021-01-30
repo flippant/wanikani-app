@@ -1,0 +1,49 @@
+<section id="info" class="container">
+        <div class="row"> 
+            <div class="col-12">
+                <h3>Frequently Asked Questions</h3>
+                <div class="question" ng-repeat="ques in faq">
+                    <h4 ng-bind-html="ques.q | to_trusted"></h4>
+                    <div ng-bind-html="ques.a | to_trusted"></div>
+                </div>
+            </div> 
+        </div>          
+        <div class="row">
+            <div class="col-12">
+                <h3>Known Issues</h3>
+                <p>If you find an issue that is not listed below, please feel free to <a href="mailto:shandra.gordon@gmail.com">contact me</a> to let me know. It will help if you can provide your API key, as well as information about your OS and browser.</p>
+                <ul class="issues">
+                    <li ng-repeat="issue in knownIssues"><span class="date">{{issue.date}}</span><span ng-bind-html="issue.desc | to_trusted"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3>Planned Development</h3>
+                <p>If you have a suggestion that is not listed below, please feel free to <a href="mailto:shandra.gordon@gmail.com">contact me</a> to let me know. Thank you for your support.</p>
+                <ul>
+                    <li ng-repeat="plan in plannedDevelopment"><span ng-bind-html="plan | to_trusted"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">  
+            <div class="col-12">
+                <h3>Developer Notes & Changelog</h3>
+                <p>This project was written completely with AngularJS. All programming features have been written from scratch. For any questions, feedback, or to offer your help, please
+                    <a href="mailto:shandra.gordon@gmail.com">contact me</a>.
+                </p>
+
+                <div class="changelog">
+                    <h6>Changelog</h6>
+                    <div ng-repeat="note in developerNotes">
+                        <span class="date">{{note.date}}</span>
+                        <ul class="dev-list">
+                            <li ng-repeat="noteDesc in note.notes" ><span ng-bind-html="noteDesc | to_trusted"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div> 
+        </div>      
+    </section>
+            

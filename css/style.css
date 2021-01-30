@@ -1,0 +1,243 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300|Oswald|Roboto+Slab);
+
+body {font-family: 'Roboto'; color: #777; background: #fafafa;}
+.character {font-family: "Hiragino Kaku Gothic Pro", "Meiryo", "Source Han Sans Japanese", "NotoSansCJK", "TakaoPGothic", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "メイリオ", "Osaka", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif}
+section {margin: 20px 0px;}
+
+h1 {margin-bottom: 20px;}
+h6 {font-family: 'Oswald'; text-transform: uppercase; text-align: center;}
+a {color: #2374AA; -webkit-transition: all 0.2s; transition: all 0.2s;}
+a:hover {color: #1296E9; text-decoration: none;}
+p a {border-bottom: 1px solid #2374AA; position: relative; top: 0px;}
+    p a:hover {border-color: #1296E9; top: -2px; padding-bottom: 2px;}
+.btn, input, select {text-transform: uppercase; font-size: 12px; font-family: 'Oswald';}
+img {max-width: 100%;}
+
+header {background: #fff; margin: 0px; padding: 0px; border-bottom: 2px solid #ddd;}
+nav {padding: 0px;}
+nav h1 {display: inline-block; font-size: 20px; text-transform: uppercase; font-family: 'Oswald'; margin: 0px; padding: 10px 0px;}
+nav .col-md-7 {border-right: 1px solid #eee;}
+nav>div {padding: 0px !important;}
+nav menu {display: inline-block; margin: 0px; padding: 0px;}
+nav menu a {position: relative; display: inline-block; padding: 20px 15px; font-family: 'Oswald'; text-transform: uppercase; color: #333;}
+    nav menu a.home {border-left: 1px solid #eee; border-right: 1px solid #eee;}
+    nav menu a::after {content: ''; position: absolute; bottom: -2px; left: 0px; right: 100%; border-bottom: 2px solid #1296E9; z-index: 9999; -webkit-transition: all 0.2s; transition: all 0.2s;}
+    nav menu a:hover::after {right: 0%;}
+
+nav .search {position: relative; border-top: 1px solid #eee;}
+nav .search i {position: absolute; left: 10px; top: 35%; color: #888;}
+nav .search input {border: none; padding: 20px 0px 20px 35px;}
+nav .search input::placeholder {color: #ddd;}
+
+main {position: relative;}
+#loading, #loading .d-flex {position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; background: rgba(250,250,250,0.7); text-align: center; z-index: 9999;}
+#loading i {color: #1296E9; padding: 40px;}
+main section:first-child {margin-top: 40px;}
+
+
+footer {padding: 80px 0px 50px; margin-top: 100px; color: #888; border-top: 1px solid #eee;}
+footer h6 {text-align: center; font-size: 12px; font-family: 'Oswald'; text-transform:  uppercase;}
+
+/* HOME */
+
+#home p {font-size: 14px;}
+#home .row {margin: 50px 0px;}
+
+.input-group-addon {background: #f9f9f9;}
+.input-group-text {font-family: 'Oswald'; text-transform: uppercase; font-size: 15px;}
+.input-group i.fa-check {color: #0FBD1D; padding-left: 10px;}
+.input-group i.fa-times {color: #DB0101; padding-left: 10px;}
+
+
+/* FILTER DISPLAY */
+
+.data-options {background: #fff; border-top: 1px solid #eee; border-left: 1px solid #eee; border-bottom: 2px solid #eee; font-size: 14px; margin: 40px 0px 15px;}
+.data-options>div {padding: 0px;}
+.data-options input[type="checkbox"] {display: none;}
+.data-options button {width: 100%;}
+.data-options a, .data-options button {cursor: pointer; display: inline-block; padding: 15px 10px; background: transparent; border: none; border-radius: 0px; font-family: 'Oswald'; text-transform: uppercase; border-right: 1px solid #eee;}
+.badge {padding-top: 3px; font-size: 15px; font-weight: normal;}
+
+label.srs, label.type, label.crit {position: relative; cursor: pointer; display: inline-block; padding: 15px 15px; margin-bottom: -2px; font-family: 'Oswald'; text-transform: uppercase; border-right: 1px solid #eee;}
+label.srs span, label.type span, label.crit span {color: #ccc; -webkit-transition: all 0.2s; transition: all 0.2s;}
+label.srs span.selected, label.type span.selected, label.crit span.selected {color: #333;}
+label.srs span.disabled {color: #eee;}
+label.srs.apprentice {border-bottom: 2px solid #dd0093;}
+label.srs.guru {border-bottom: 2px solid #882d9e;}
+label.srs.master {border-bottom: 2px solid #294ddb;}
+label.srs.enlighten {border-bottom: 2px solid #0093dd;}
+label.srs.burned {border-bottom: 2px solid #555;}
+label.type.radicals {border-bottom: 2px solid #00a1f1;}
+label.type.kanji {border-bottom: 2px solid #f100a1;}
+label.type.vocabulary {border-bottom: 2px solid #a100f1;}
+
+label.hints {width: 33.33%; text-align: center;}
+
+#quiz-options .data-options {margin-top: 15px;}
+#quiz-options label.srs {width: 20%;}
+#quiz-options label.type {width: 33.3333%;}
+
+.quiz-btn {font-size: 15px; margin-top: 30px;}
+
+.action-menu {text-align: right;}
+.action-menu a {color: #0FBD1D;}
+
+.level-menu {border-radius: 0px;}
+.level-menu .btn {font-size: 10px; font-family: 'Oswald'; text-transform: uppercase; margin: 1px; width: 35px;}
+.dropdown-menu {background: #343a40; border: none; border-radius: none; width: 200px; padding: 10px; margin-top: -1px; margin-left: -1px;}
+.dropdown-container {padding: 0px; margin: 0px auto;}
+.dropdown-container .btn, .dropdown-container label {margin: 0px; border-radius: 0px;}
+
+
+/* CARD DISPLAY */
+
+.level {padding: 25px 0px;}
+.level h6 {text-align: center; position: relative; margin-bottom: 15px;}
+    .level h6::before {content: ""; position: absolute; left: 20%; top: 50%; right: 60%; height: 0px; border-bottom: 1px solid #ddd;}
+    .level h6::after {content: ""; position: absolute; right: 20%; top: 50%; left: 60%; height: 0px; border-bottom: 1px solid #ddd;}
+
+.card-list .card-container {padding: 5px;}
+#vocabulary .card-container {min-width: 20%;}
+.card-list .card {display: block; position: relative; padding: 0px; margin: 1px 1px 0px 0px; background: #fafafa; border: none; border-radius: 0px;
+    text-align: center; background: #fff; color: #777; border-bottom: 2px solid #ddd;
+    -webkit-transition: all 0.3s; transition: all 0.3s;}
+.card-list .card:hover {box-shadow: 0px 0px 5px rgba(0,0,0,0.05);}
+.card-list .card .srs {padding: 3px; color: #fff; background: rgba(0,0,0,0.15); text-transform: uppercase; font-size: 8px; font-weight: bold; letter-spacing: 1px;}
+
+.card-list .card .srs.apprentice {background: #dd0093}
+.card-list .card .srs.guru {background: #882d9e}
+.card-list .card .srs.master {background: #294ddb}
+.card-list .card .srs.enlighten {background: #0093dd}
+.card-list .card .srs.burned {background: #555}
+.card-list .card .srs.unknown {background: #ccc;}
+
+#radicals .card-list .card {border-bottom-color: #00a1f1}
+#kanji .card-list .card {border-bottom-color: #f100a1}
+#vocabulary .card-list .card {border-bottom-color: #a100f1}
+
+.card-list .card .character {font-size: 72px; font-weight: bold; -webkit-transition: all 0.2s; transition: all 0.2s;}
+.card-list .card .image img {height: 108px; padding: 18px 0px; -webkit-filter: invert(55%); filter: invert(55%);}
+#vocabulary .card-list .card .character {font-size: 24px; padding: 10px 0px 15px;}
+
+.card-list .card .next-available {position: absolute; bottom: -2px; right: 40%; width: 20%; padding: 3px 0px; background: #fafafa; color: #333; text-align: center; font-size: 10px;}
+
+.card-list .card .hover {position: absolute; top: 100%; bottom: -1px; right: 0px; left: 0px; height: 0px; text-align: left; font-size: 12px;
+    color: #333; -webkit-transition: all .5s; transition: all .5s; z-index: 999; overflow: hidden;}
+    .card-list .card:hover .hover {height: 150px;}
+.card-list .card .hover > div {display: none; background: #fff; border-bottom: 1px solid #eee;}
+    .card-list .card .hover > div:first-child {border-top: 1px solid #eee;}
+    .card-list .card .hover > div:last-child {border-bottom: 1px solid #eee;}
+.card-list .card:hover .hover > div {display: block;}
+/* .card-list .card .hover::before {content:''; position: absolute; top: -20px; left: 25px; width: 0px; border: 10px solid #2f3337; 
+    border-top-color: transparent; border-right-color: transparent; border-left-color: transparent; } */
+.card-list .card  .hover>div>span {display: inline-block; padding: 5px 6px;}
+.card-list .card .hover .label {text-transform: uppercase; border-right: 1px solid #eee;}
+.onyomi .onyomi, .kunyomi .kunyomi {color: #1296E9 !important;}
+
+
+/* QUIZ */
+
+#quiz, .quiz>div {padding: 0px; margin: 0px;}
+.quiz {overflow: hidden;}
+.quiz.card-list .card {margin: 0px;}
+.quiz.card-list .card  .character {position: relative; padding: 60px 0px; font-size: 124px !important; color: #fff; background: #222; overflow: hidden;}
+    .quiz.card-list .radicals .character {background: #00a1f1;}
+    .quiz.card-list .radicals .image {background: #00a1f1;}
+    .quiz.card-list .kanji .character {background: #f100a1;}
+    .quiz.card-list .vocabulary .character {background: #a100f1;}
+    .quiz.card-list .godan .character {background: #C50977}
+    .quiz.card-list .ichidan .character {background: #F2784B}
+    .quiz.card-list .irregular .character {background: #0AE4C7}
+    .quiz.card-list .a .type {background: #D64541}
+    .quiz.card-list .i .type {background: #F5AB35}
+    .quiz.card-list .u .type {background: #16a085}
+    .quiz.card-list .e .type {background: #3498DB}
+    .quiz.card-list .o .type {background: #BE90D4}
+    .quiz.card-list .te .type {background: #a54972}
+    .quiz.card-list .ta .type {background: #e08745}
+
+.quiz.card-list .card .character .kana {font-size: 16px; font-weight: normal;}
+.quiz.card-list .card .image img {height: 140px; filter: none;}
+.quiz .type {text-transform: uppercase; font-family: 'Oswald'; letter-spacing: 1px; font-size: 16px; padding: 3px; letter-spacing: 1px; background: #555; color: #fff;}
+    .quiz .meaning {background: #ddd; color: #333;}
+    .quiz .reading {background: #111; color: #fff;}
+.quiz .response {position: absolute; bottom: -20px; right: 0px; left: 0px; text-align: center; font-size: 13px; -webkit-transition: all 0.2s; transition: all 0.2s;}
+    .quiz .response.active {bottom: 10px;}
+#quizForm input {background: #fff; color: #333 !important; border: none; display: block; width: 100%; padding: 30px; text-align: center; font-size: 24px; 
+    font-family: 'Roboto'; text-transform: none;}
+
+.quiz-header {text-align: right; background: #333;}
+.remaining {display: inline-block; text-transform: uppercase; font-weight: bold; font-size: 13px; background: #333; color: #fff; padding: 10px 15px;}
+.exit {position: absolute; top: 15px; right: 20px; z-index: 9999;}
+.exit i {color: #fff; cursor: pointer;}
+
+.progress {border-radius: 0px; background: #111;}
+
+
+    
+#summary {margin-top: 40px;}
+.summary {background: #fff; padding: 0px 20px 50px; margin-bottom: 20px; box-shadow: 0px 1px 3px -1px rgba(0,0,0,0.4);}
+#summary .quiz-results-card {background: #fff; margin: 0px; padding: 20px 0px;}
+    .quiz-results-card h2 {padding: 0px 20px 20px; font-family: Oswald; text-transform: uppercase; letter-spacing: 1px;}
+    .quiz-results-card .progress {background: #ddd; overflow: visible; height: 5px;}
+    .quiz-results-card .progress-bar {position: relative; height: 5px;}
+    .quiz-results-card .flag {content: ''; position: absolute; left: 95%; top: -30px; background: #333; padding: 3px; border-radius: 3px; font-size: 10px; width: 35px;}
+        .quiz-results-card .flag::after {content: ''; position: absolute; bottom: -8px; right: 15px; border: 4px solid #333; border-bottom-color: transparent; border-left-color: transparent; border-right-color: transparent;}
+.summary h5 {text-transform: uppercase; margin: 40px 20px 10px;}
+.summary-question {background: #f4f4f4; margin: 2px 20px; padding: 0px; border-radius: 4px; font-size: 13px;}
+    .summary-question>span {display: inline-block; padding: 10px 10px 10px 0px; vertical-align: top;}
+    .summary-question .character {padding: 10px 10px 10px 12px; background: #777; color: #fff;}
+        .summary-question.radicals .character {background: #00a1f1;}
+        .summary-question.kanji .character {background: #f100a1;}
+        .summary-question.vocabulary .character {background: #a100f1;}
+    .summary-question .character + span {padding-left: 10px;}
+    .summary-question .type, .summary-question .submitted-response {padding: 13px 10px 10px 10px; color: #aaa; font-weight: bold; text-transform: uppercase; font-size: 10px;}
+    .summary-question .correct-answer {color: #111;}   
+    .summary-question.close-answer {position: relative;}
+        .summary-question.close-answer::before {position: absolute; content: ''; top: 35%; left: -10px; height: 0px; width: 0px; border: 6px solid #333; 
+          border-bottom-color: transparent; border-top-color: transparent; border-right-color: transparent;}
+
+.summary-question .image img {width: 15px;}
+
+
+/* SEARCH RESULTS */
+
+#search-results {padding: 20px 20px 40px; border-bottom: 1px solid #eee; box-shadow: 0px 8px 10px rgba(0,0,0,0.05);}
+#search-results .close {display: inline-block; width: 30px; height: 30px; font-size: 30px; border-radius: 40px; color: #333;}
+#search-results .card .character {font-size: 26px;}
+#search-results .image img {height: 40px; padding: 5px 0px;}
+#search-results .card.radicals {border-color: #00a1f1;}
+#search-results .card.kanji {border-color: #f100a1;}
+#search-results .card.vocabulary {border-color: #a100f1;}
+
+
+/* INFO */
+
+#info .row {margin-bottom: 20px;}
+
+.question {margin: 20px 0px; background: #fff; border-bottom: 2px solid #ddd;}
+    .question h4 {padding: 15px 15px 10px; font-size: 1.2rem; font-family: 'Oswald'; text-transform: uppercase; border-bottom: 1px solid #eee;}
+    .question p {padding: 0px 15px;}
+
+.issues .date {background: #fff; padding: 3px 8px; margin: 0px 4px; font-weight: bold; font-size: 12px;}
+
+.changelog {background: #fff; border-bottom: 2px solid #ddd; font-size: 12px;}
+    .changelog h6 {padding: 15px 15px 10px; font-size: .8rem; font-family: 'Oswald'; text-transform: uppercase; border-bottom: 1px solid #eee;}
+    .changelog div {margin: 15px;}
+
+
+
+@media (max-width: 767.98px) {
+
+    nav menu a {padding: 15px 10px;}
+
+    label.srs {border-top: 1px solid #eee; width: 20%; text-align: center;}
+    label.type {width: 33%; text-align: center;}
+    label.crit {width: 100%; border-top: 1px solid #eee; text-align: center;}
+    .action-menu a {display: block; text-align: center;}
+
+    #vocabulary .card-container {min-width: 33%;}
+
+    .quiz.card-list .card .character {font-size: 64px !important; padding: 30px 0px;}
+    #quizForm input {padding: 15px 0px;}
+}

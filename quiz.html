@@ -1,0 +1,65 @@
+<div id="loading" ng-hide="isLoaded">
+    <div class="d-flex justify-content-center">
+        <div>
+            <i class="fa fa-spinner fa-pulse fa-4x"></i>
+        </div>
+    </div>            
+</div>
+<section id="quiz" class="container-fluid">   
+    <div class="row card-list quiz" ng-hide="finished">
+        <div class="col-12 quiz-header">
+            <span class="remaining">{{quizList.length + 1}} remaining</span>  
+            
+        </div>
+        <div class="col-12">
+            <div class="card {{currentQuestion.type}}" ng-show="currentQuestion">
+                <span class="exit" data-toggle="tooltip" data-placement="left" title="Exit Quiz"><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="endQuiz()"></i></span>  
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar" role="progressbar" ng-style="{'width': ( ( (summary.incorrect.length || 0) + (summary.correct.length || 0) ) / ( 1 + (quizList.length || 0) + (summary.incorrect.length || 0) + (summary.correct.length || 0) ) ) * 100 +'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="character">
+                    {{currentQuestion.character}}
+                    <div class="image" ng-hide="currentQuestion.character"><img ng-src="{{currentQuestion.image}}" /></div>
+                    <div class="response" ng-class="{'active':response}">{{response}}</div>
+                </div>
+                
+                <div class="type" ng-class="currentQuestion.meaning ? 'meaning' : 'reading'">{{currentQuestion.type | titleCase}} <strong>{{currentQuestion.meaning ? 'Meaning' : 'Reading'}}</strong></div>
+                
+                <form ng-submit="submitGuess()" id="quizForm">
+                    <input type="text" ng-model="userGuess" ng-change="currentQuestion.meaning ? void() : toJapanese()" placeholder="{{currentQuestion.meaning ? 'Meaning' : 'Reading'}}" />
+                </form>
+            </div>       
+        </div>
+    </div>   
+
+    <!-- REPORT AFTER QUIZ IS DONE -->
+    <div class="container" id="summary" ng-show="finished">
+        <div class="row">
+            <div class="summary quiz-results-card col-12">
+                <h2>Quiz Results</h2>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" ng-style="{'width': ( summary.correct.length / ( (summary.incorrect.length + summary.correct.length) || 1) ) * 100 +'%'}"><div class="flag">{{ ( summary.correct.length / ( (summary.incorrect.length + summary.correct.length) || 1) ) * 100 | floor}}%</div></div>
+                </div>
+
+                <h5>Incorrect <span class="badge badge-danger">{{summary.incorrect.length}}</span></h3>
+                <div class="summary-question {{question.question.type}}" role="alert" ng-repeat="question in summary.incorrect">
+                    <span class="character">{{question.question.character}}<span class="image" ng-hide="question.question.character"><img ng-src="{{question.question.image}}" /></span></span>
+                    <span class="type" ng-class="question.question.meaning ? 'meaning' : 'reading'">{{question.question.meaning ? 'Meaning' : question.question.kana ? '仮名' : question.question.meaning=='onyomi' ? '音読み' : '訓読み'}}</span>
+                    <span class="correct-answer"><span ng-repeat="answer in question.answer track by $index">{{answer}}, </span></span>
+                    <span class="submitted-response">Submitted</span>
+                    <span class="guess">{{question.guess}}</span>
+                </div>
+
+                <h5>Correct <span class="badge badge-success">{{summary.correct.length}}</span></h5>
+                <div class="summary-question {{question.question.type}} {{question.correct}}-answer" role="alert" ng-repeat="question in summary.correct">
+                    <span class="character">{{question.question.character}}<span class="image" ng-hide="question.question.character"><img ng-src="{{question.question.image}}" /></span></span>
+                    <span class="type" ng-class="question.question.meaning ? 'meaning' : 'reading'">{{question.question.meaning ? 'Meaning' : question.question.kana ? '仮名' : question.question.meaning=='onyomi' ? '音読み' : '訓読み'}}</span>
+                    <span class="correct-answer"><span ng-repeat="answer in question.answer track by $index">{{answer}}, </span></span>
+                    <span class="submitted-response">Submitted</span>
+                    <span class="guess">{{question.guess}}</span>
+                </div>  
+            </div> 
+        </div>
+    </div>
+    
+</section>

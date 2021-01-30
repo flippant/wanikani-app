@@ -1,0 +1,49 @@
+<section id="home" class="container">
+    <div class="row">
+        <div class="col-12 col-md-4 my-4">
+            <img src="img/wanikani.png" title="WaniKani Japanese SRS Kanji App" />
+        </div>   
+        <div class="col-12 col-md-8">
+            <h2>What is WaniKani?</h2>
+            <p>WaniKani is a website that uses Spaced Repetition Software (SRS) and unique mnemonics 
+            to help users learn both the meanings and readings of Japanese characters and vocabulary. It works by reducing
+            components to their smallest part to help users build meaningful context that helps stimulate memory.</p>
+            <h2>So what is this website for?</h2>
+            <p>WaniKani strongly enforces its strict Spaced Repetion schedule, meaning users can only take reviews on specific items when
+            they are ready in the queue. <strong>This is a good thing</strong> &mdash; if you were
+            to quiz yourself each day on the meaning of 白, you will never get the chance to stretch your memory and test it out at
+            30 days.</p>
+            <p>But some users, like myself, have to take extended breaks, and when we come back, we are overwhelmed with hundreds of items in
+            our queue from several months&mdash;or years&mdash;ago. Or sometimes users would like a refresher on the items already burned.
+            Thus, I built this app as a simple supplement to WaniKani.</p>
+            <p>Please note, for the above reason, this app should be used <strong>sparingly</strong>. WaniKani makes you wait those 30 days
+            for a good reason, and by overtaking quizzes, you could undermine your own progress!</p>
+        </div> 
+    </div>          
+    <div class="row">  
+        <div class="col-12">
+            <h2>Connect to your WaniKani Account</h2>
+            <p>To connect this app to your own WaniKani account, please visit <a href="https://www.wanikani.com/settings/account" target="_blank">https://www.wanikani.com/settings/account</a> 
+            to find your own Public API Key (API Version 1), and submit it in the field below.</p>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    
+                    <span class="input-group-text">Public API Key</span>
+                    <i ng-show="cookieSubmitted && cookieResponse" class="fa fa-check"></i>
+                    <i ng-show="cookieSubmitted && !cookieResponse" class="fa fa-times"></i>
+                </div>
+                <input type="text" class="form-control" ng-class="cookieSaved ? 'saved' : 'unsaved'" ng-model="apikey" ng-change="storeCookie(apikey)" placeholder="{{userToken}}" />                 
+            </div>
+            <br/>
+            <h6 ng-show="cookieSubmitted && cookieResponse">Welcome, {{cookieResponse.user_information.username}}. Your API key was successfully saved!</h6>
+            <h6 ng-show="cookieSubmitted && !cookieResponse">There was an error with that API key. Please be sure you are copying your <b>Version 1</b> API key from WaniKani.</h6>
+
+            
+
+            <br /><br />
+            <p><strong>Don't have a WaniKani account?</strong> You can still take a look around using my own API key <b>3e81faf4130a42db9e9ca87ae459f0e0</b>. But if you are interested in learning Japanese, please know that this
+            website does not replace WaniKani in any way, so be sure to check it out for yourself and try the free trial!</p>
+        </div> 
+    </div>      
+</section>
+        

@@ -1,0 +1,73 @@
+<div id="loading" ng-hide="isLoaded">
+    <div class="d-flex justify-content-center">
+        <div>
+            <i class="fa fa-spinner fa-pulse fa-4x"></i>
+        </div>
+    </div>            
+</div>
+<section id="quiz" class="container-fluid">   
+    <div class="row card-list quiz" ng-hide="finished">
+        <div class="col-12 quiz-header">
+            <span class="remaining">{{quizList.length + 1}} remaining</span>  
+            
+        </div>
+        <div class="col-12">
+            <div class="card" ng-class="(hints['Verb Class'] ? currentQuestion.verbType : '') + ' ' + (hints['Stem Type'] ? currentQuestion.form.stem : '')" ng-show="currentQuestion">
+                <span class="exit" data-toggle="tooltip" data-placement="left" title="Exit Quiz"><i class="fa fa-times fa-2x" aria-hidden="true" ng-click="endQuiz()"></i></span>  
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar" role="progressbar" ng-style="{'width': ( ( (summary.incorrect.length || 0) + (summary.correct.length || 0) ) / ( 1 + (quizList.length || 0) + (summary.incorrect.length || 0) + (summary.correct.length || 0) ) ) * 100 +'%'}"></div>
+                </div>
+                <div class="character">
+                    <ruby>{{currentQuestion.character}}<rt class="kana"><span ng-show="hints.Furigana">{{currentQuestion.dictionaryKana}}</span></rt></ruby>
+                    <div class="response" ng-class="{'active':response}">{{response}}</div>
+                </div>
+
+                <div class="type">{{currentQuestion.form.meaning}}</strong></div>
+                
+                <form ng-submit="submitGuess()" id="quizForm">
+                    <input type="text" ng-model="userGuess" ng-change="toJapanese()" placeholder="Conjugation" />
+                </form>
+            </div>       
+        </div>
+    </div>   
+
+    
+    <div class="row data-options" ng-hide="finished">
+        <div class="col-12">
+            <label ng-repeat="(type,enabled) in hints" class="type hints">
+                    <input type="checkbox" ng-model="hints[type]" /> 
+                    <span ng-class="{'selected': hints[type]}">{{type}}</span>
+            </label>
+        </div>
+    </div>
+
+
+    <!-- REPORT AFTER QUIZ IS DONE -->
+    <div class="container" id="summary" ng-show="finished">
+        <div class="row">
+            <div class="summary quiz-results-card col-12">
+                <h2>Quiz Results</h2>
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar" role="progressbar" ng-style="{'width': ( summary.correct.length / ( (summary.incorrect.length + summary.correct.length) || 1) ) * 100 +'%'}"><div class="flag">{{ ( summary.correct.length / ( (summary.incorrect.length + summary.correct.length) || 1) ) * 100 | floor}}%</div></div>
+                </div>
+
+                <h5>Incorrect <span class="badge badge-danger">{{summary.incorrect.length}}</span></h5>
+                <div class="summary-question" role="alert" ng-repeat="question in summary.incorrect">
+                    <span class="character {{question.form.stem}}">{{question.question.character}}</span>
+                    <span class="type">{{question.question.form.meaning}}</span>
+                    <span class="correct-answer">{{question.answer}}</span>
+                    <span class="submitted-response">Submitted</span>
+                    <span class="guess">{{question.guess}}</span>
+                </div>      
+
+                <h5>Correct <span class="badge badge-success">{{summary.correct.length}}</span></h5>
+                <div class="summary-question" role="alert" ng-repeat="question in summary.correct">
+                    <span class="character {{question.form.stem}}">{{question.question.character}}</span>
+                    <span class="type">{{question.question.form.meaning}}</span>
+                    <span class="correct-answer">{{question.answer}}</span>
+                </div>     
+            </div> 
+        </div>
+    </div>
+    
+</section>
